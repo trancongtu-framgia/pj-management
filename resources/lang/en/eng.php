@@ -10,5 +10,12 @@ return [
     'calendar' => 'Calendar',
     'deadline' => 'Deadline',
     'history' => 'History',
-    'placeholder_search' => 'Type to search...'
+    'placeholder_search' => 'Type to search...,',
+    'create_sub' => 'Create new subject',
+    'sub' => 'Subject',
+    'sub_name' => 'Subject name*',
+    'label_desc' => 'Description',
+    'btn_submit' => 'Submit',
+    'btn_reset' => 'Cancel',
+    'loggedin' => 'You are logged in.'
 ];

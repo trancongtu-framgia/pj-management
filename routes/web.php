@@ -11,6 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'PageController@home');
+Route::get('subject/create', 'SubjectController@showCreateForm');
+Route::post('subject/create', 'SubjectController@create');
