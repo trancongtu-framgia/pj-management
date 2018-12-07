@@ -18,5 +18,12 @@
         "lodash": "^4.17.5",
         "popper.js": "^1.12",
         "vue": "^2.5.17"
+    },
+    "dependencies": {
+        "animate.css": "^3.7.0",
+        "app.min.js": "0.0.2",
+        "chart.min.js": "0.0.1",
+        "font-awesome": "^4.7.0",
+        "jquery-sparkline": "^2.4.0"
     }
 }

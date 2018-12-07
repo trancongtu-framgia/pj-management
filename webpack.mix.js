@@ -13,3 +13,21 @@ const mix = require('laravel-mix');
 
 mix.js('resources/js/app.js', 'public/js')
    .sass('resources/sass/app.scss', 'public/css');
+mix.styles(
+    [
+        'node_modules/bootstrap/dist/css/bootstrap.css',
+        'resources/assets/vendor/PACE/themes/blue/pace-theme-minimal.css',
+        'resources/assets/vendor/perfect-scrollbar/css/perfect-scrollbar.min.css',
+        'node_modules/animate.css/animate.css/animate.min.css',
+        'resources/assets/css/app.css',
+        'node_modules/font-awesome/css/font-awesome.css/font-awesome.min.css',
+        'resources/assets/css/materialdesignicons.min.css',
+        'resources/assets/css/themify-icons.css'
+    ], 'public/css/template-css.css');
+mix.scripts(
+    [
+        'resources/assets/js/vendor.js',
+        'resources/assets/js/app.min.js'
+    ], 'public/js/template-js.js');
+mix.copy('node_modules/jquery-sparkline/jquery.sparkline.js', 'public/js/template-jquery.js');
+mix.copy('resources/assets/js/dashboard/default.js', 'public/js/default.js');
