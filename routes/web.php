@@ -14,3 +14,4 @@
 Route::get('/', 'PageController@home');
 Route::get('subject/create', 'SubjectController@showCreateForm');
 Route::post('subject/create', 'SubjectController@create');
+Route::get('subject', 'SubjectController@getAllSubjects');

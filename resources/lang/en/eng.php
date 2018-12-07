@@ -1,6 +1,11 @@
 <?php
 
 return [
+    'id' => 'ID',
+    'name' => 'Name',
+    'action' => 'Action',
+    'del_confirm' => 'del_confirm',
+    'del' => 'Delete',
     'nav' => 'Navigation',
     'dashboard' => 'Dashboard',
     'exercise' => 'Exercise',
