@@ -26,4 +26,11 @@ class SubjectController extends Controller
 
         return view('subjects.create', compact('subject'));
     }
+
+    public function getAllSubjects()
+    {
+        $subject = $this->subject->getAll();
+
+        return view('subjects.index', compact('subject'));
+    }
 }
