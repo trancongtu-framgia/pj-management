@@ -12,6 +12,7 @@ return [
     | any other location as required by the application or its packages.
     |
     */
+    'group_image' => 'storage/app/public/group_image',
 
     'name' => env('APP_NAME', 'Laravel'),
 

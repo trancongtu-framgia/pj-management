@@ -130,7 +130,7 @@ return [
             'rule-name' => 'custom-message',
         ],
     ],
-
+    'mimes' => 'File is jpeg, png or gif',
     /*
     |--------------------------------------------------------------------------
     | Custom Validation Attributes

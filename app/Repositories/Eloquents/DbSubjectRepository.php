@@ -15,7 +15,7 @@ class DbSubjectRepository implements SubjectInterface
 
     public function getAll()
     {
-        return $this->model->all();
+        return $this->model->pluck('name','id')->all();
     }
 
     public function getById($id)
