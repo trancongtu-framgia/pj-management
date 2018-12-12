@@ -13,6 +13,11 @@ class DbSubjectRepository implements SubjectInterface
         $this->model = $subject;
     }
 
+    public function getAllSubjects()
+    {
+        return $this->model->all();
+    }
+
     public function getAll()
     {
         return $this->model->pluck('name','id')->all();

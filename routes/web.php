@@ -10,10 +10,15 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/', 'PageController@home');
-Route::get('subject/create', 'SubjectController@showCreateForm');
-Route::post('subject/create', 'SubjectController@create');
-Route::get('subject', 'SubjectController@getAllSubjects');
-Route::get('group/create', 'GroupController@showCreateForm');
-Route::post('group/create', 'GroupController@create');
+Route::group(['prefix' => 'subject'], function() {
+    Route::get('/create', 'SubjectController@showCreateForm');
+    Route::post('/create', 'SubjectController@create');
+    Route::get('/', 'SubjectController@getAllSubjects');
+});
+
+Route::group(['prefix' => 'group'], function() {
+    Route::get('create', 'GroupController@showCreateForm');
+    Route::post('create', 'GroupController@create');
+    Route::get('/', 'GroupController@getAllGroups');
+});

@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use App\Repositories\Interfaces\SubjectInterface;
@@ -29,8 +30,8 @@ class SubjectController extends Controller
 
     public function getAllSubjects()
     {
-        $subject = $this->subject->getAll();
+        $subject = $this->subject->getAllSubjects();
 
-        return view('subjects.index', compact('subject'));
+        return view('subjects.index')->with(['subject' => $subject]);
     }
 }
