@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use App\Repositories\Interfaces\SubjectInterface;
@@ -8,6 +7,7 @@ use App\Http\Requests\SubjectFormRequest;
 class SubjectController extends Controller
 {
     private $subject;
+
     public function __construct(SubjectInterface $subject)
     {
         $this->subject = $subject;

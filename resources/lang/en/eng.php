@@ -19,8 +19,10 @@ return [
     'create_sub' => 'Create new subject',
     'sub' => 'Subject',
     'sub_name' => 'Subject name*',
+    'group_name' => 'Group name*',
     'label_desc' => 'Description',
     'btn_submit' => 'Submit',
     'btn_reset' => 'Cancel',
-    'loggedin' => 'You are logged in.'
+    'loggedin' => 'You are logged in.',
+    'image' => 'Image',
 ];
