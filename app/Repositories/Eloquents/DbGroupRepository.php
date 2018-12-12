@@ -29,16 +29,18 @@ Class DbGroupRepository implements GroupInterface{
     {
         $attribute = Input::all();
         if (Input::hasFile('group_image')) {
-            $group_image = Input::file('group_image');
-            $name = $group_image->getClientOriginalName();
-            $image = str_random(4) . '_' . $name;
-            while (file_exists(config('app.group_image') . $image)) {
+            $file = Input::file('group_image');
+            $name = $file->getClientOriginalName();
+            $group_image = str_random(4) . '_' . $name;
+            while (file_exists(config('app.group_image') . $group_image)) {
                 $group_image = str_random(4) . '_' . $name;
             }
-            $group_image->move(config('app.group_image'), $image);
+            $file->move(config('app.group_image'), $group_image);
+            $this->model->group_image = $name;
         } else {
-            $group_image = '';
+            $this->model->group_image = '';
         }
+        $attribute['group_image'] = $group_image;
 
         return $this->model->create($attribute);
     }
