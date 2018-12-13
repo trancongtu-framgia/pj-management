@@ -25,4 +25,7 @@ return [
     'btn_reset' => 'Cancel',
     'loggedin' => 'You are logged in.',
     'image' => 'Image',
+    'upload_task' => 'Upload',
+    'createEx' => 'Create exercise',
+    'link' => 'Link',
 ];

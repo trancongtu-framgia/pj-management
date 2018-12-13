@@ -27,7 +27,7 @@
                             </div>
                             {!! Form::label('name', __('eng.image'), ['class' => 'col-sm-3 col-form-label control-label']) !!}
                             <div class="col-sm-10">
-                                {!! Form::file('group_image', null, ['class' => 'form-control']) !!}
+                                {!! Form::file('task', null, ['class' => 'form-control']) !!}
                             </div>
                             {!! $errors->first('group_image', '<span class="validate-error">:message</span>') !!}
                         </div>

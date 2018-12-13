@@ -22,3 +22,8 @@ Route::group(['prefix' => 'group'], function() {
     Route::post('create', 'GroupController@create');
     Route::get('/', 'GroupController@getAllGroups');
 });
+
+Route::group(['prefix' => 'task'], function() {
+    Route::get('create', 'TaskController@showUploadForm');
+    Route::post('create', 'TaskController@upload');
+});
