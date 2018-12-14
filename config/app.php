@@ -13,7 +13,7 @@ return [
     |
     */
     'group_image' => 'public/group_image/',
-
+    'fileEx' => 'public/file_exercise/',
     'name' => env('APP_NAME', 'Laravel'),
 
     /*
