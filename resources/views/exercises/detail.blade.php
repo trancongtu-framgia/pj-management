@@ -1,7 +1,7 @@
 @extends('master')
 @section('title', __('eng.sub'))
 @section('content')
-    {!! Form::open(['method' => 'GET', 'url' => 'task/create']) !!}
+    {!! Form::open(['method' => 'GET', 'url' => 'task/' . $exercise->id . '/create']) !!}
         {!! Form::submit(__('eng.submit'), ['class' => 'btn btn-gradient-success']) !!}
     {!! Form::close() !!}
     <div class="card">

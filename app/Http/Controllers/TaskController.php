@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Repositories\Interfaces\ExerciseInterface;
 use App\Repositories\Interfaces\TaskInterface;
 use App\Http\Requests\TaskFormRequest;
 
@@ -9,10 +10,12 @@ class TaskController extends Controller
 {
     private $task;
 
-    public function __construct(TaskInterface $task)
+    public function __construct(TaskInterface $task, ExerciseInterface $exercise)
     {
         $this->task = $task;
+        $this->exercise = $exercise;
         view()->share('task', $task);
+        view()->share('exercise', $exercise);
     }
 
     public function getAll()
@@ -22,9 +25,11 @@ class TaskController extends Controller
         return view('tasks.index', compact('task'));
     }
 
-    public function showUploadForm()
+    public function showUploadForm($id)
     {
-        return view('tasks.create');
+        $exercise = $this->exercise->getById($id);
+
+        return view('tasks.create', compact('exercise'));
     }
 
     public function upload(TaskFormRequest $request)
@@ -32,6 +37,12 @@ class TaskController extends Controller
         $attribute = $request->all();
         $task = $this->task->create($attribute);
 
-        return view('tasks.create')->with(['task' => $task]);
+        return view('tasks.index')->with(['task' => $task]);
+    }
+
+    public function delete($id)
+    {
+        $this->task->delete($id);
+        return redirect('task');
     }
 }

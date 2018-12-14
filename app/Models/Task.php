@@ -12,5 +12,6 @@ class Task extends Model
         'description',
         'link',
         'file',
+        'exercise_id',
     ];
 }
