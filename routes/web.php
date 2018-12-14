@@ -21,9 +21,17 @@ Route::group(['prefix' => 'group'], function() {
     Route::get('create', 'GroupController@showCreateForm');
     Route::post('create', 'GroupController@create');
     Route::get('/', 'GroupController@getAllGroups');
+    Route::get('/{id}/detail', 'GroupController@show');
 });
 
 Route::group(['prefix' => 'task'], function() {
     Route::get('create', 'TaskController@showUploadForm');
     Route::post('create', 'TaskController@upload');
+});
+
+Route::group(['prefix' => 'exercise'], function() {
+    Route::get('/', 'ExerciseController@getAll');
+    Route::get('/create', 'ExerciseController@showCreateForm');
+    Route::post('/create', 'ExerciseController@create');
+    Route::get('{id}/detail', 'ExerciseController@show');
 });

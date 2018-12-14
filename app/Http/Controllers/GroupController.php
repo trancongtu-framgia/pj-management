@@ -43,4 +43,11 @@ class GroupController extends Controller
 
         return view('groups.create', compact('group'));
     }
+
+    public function show($id)
+    {
+        $group = $this->group->getById($id);
+
+        return view('groups.detail', compact('group', $group));
+    }
 }
