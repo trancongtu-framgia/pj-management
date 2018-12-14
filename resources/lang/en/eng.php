@@ -4,7 +4,7 @@ return [
     'id' => 'ID',
     'name' => 'Name',
     'action' => 'Action',
-    'del_confirm' => 'del_confirm',
+    'del_confirm' => 'Are you sure?',
     'del' => 'Delete',
     'nav' => 'Navigation',
     'dashboard' => 'Dashboard',

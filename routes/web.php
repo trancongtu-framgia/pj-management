@@ -25,8 +25,10 @@ Route::group(['prefix' => 'group'], function() {
 });
 
 Route::group(['prefix' => 'task'], function() {
-    Route::get('create', 'TaskController@showUploadForm');
-    Route::post('create', 'TaskController@upload');
+    Route::get('{id}/create', 'TaskController@showUploadForm');
+    Route::post('{id}/create', 'TaskController@upload');
+    Route::get('/', 'TaskController@getAll');
+    Route::get('{id}/delete', 'TaskController@delete');
 });
 
 Route::group(['prefix' => 'exercise'], function() {

@@ -44,6 +44,6 @@ class ExerciseController extends Controller
     {
         $exercise = $this->exercise->getById($id);
 
-        return view('exercise.detail', compact('exercise', $exercise));
+        return view('exercises.detail', compact('exercise', $exercise));
     }
 }
