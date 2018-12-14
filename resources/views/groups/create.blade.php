@@ -37,7 +37,7 @@
                                 {!! Form::select('subject_id', $subject, null, ['class' => 'form-control']) !!}
                             </div>
                         </div>
-                        <button class="btn btn-gradient-success">{{ __('eng.btn_submit') }}</button>
+                        {!! Form::submit(__('eng.btn_submit'), ['class' => 'btn btn-gradient-success']) !!}
                     {!! Form::close() !!}
                 </div>
             </div>

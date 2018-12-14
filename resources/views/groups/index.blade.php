@@ -5,9 +5,9 @@
         @foreach($group as $group)
             <div class="col-md-4">
                 <div class="card">
-                    <img class="card-img-top" src="{{ asset(config('app.group_image') . $group->group_image) }}" alt="#">
+                    <a href="{{ url('group/' . $group->id . '/detail') }}"><img class="card-img-top" src="{{ asset(config('app.group_image') . $group->group_image) }}" alt="#"></a>
                     <div class="card-body">
-                        <h4 class="card-title m-t-10">{{ $group->name }}</h4>
+                        <h4 class="card-title m-t-10"><a href="{{ url('group/' . $group->id . '/detail') }}">{{ $group->name }}</a></h4>
                         <p class="card-text">{{ $group->description }}</p>
                         <p class="card-text">{{ $group->subject_id }}</p>
                         <p class="card-text">{{ $group->group_image }}</p>
