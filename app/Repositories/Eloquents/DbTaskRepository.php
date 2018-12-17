@@ -5,6 +5,7 @@ namespace App\Repositories\Eloquents;
 use App\Repositories\Interfaces\TaskInterface;
 use App\Models\Task;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Response;
 
 Class DbTaskRepository implements TaskInterface{
 
@@ -27,20 +28,20 @@ Class DbTaskRepository implements TaskInterface{
 
     public function create(array $attribute)
     {
-        $attribute = Input::all();
-        if (Input::hasFile('file')) {
-            $file = Input::file('file');
+        $file = $attribute['file'];
+        if (isset($file)) {
             $name = $file->getClientOriginalName();
             $fileEx = str_random(4) . '_' . $name;
             while (file_exists(config('app.group_image') . $fileEx)) {
                 $fileEx = str_random(4) . '_' . $name;
             }
-            $file->move(config('app.group_image'), $fileEx);
+                    $path = $file->store('public/files');
+
             $this->model->file = $name;
         } else {
             $this->model->file = '';
         }
-        $attribute['file'] = $fileEx;
+        $attribute['file'] = $path;
 
         return $this->model->create($attribute);
     }
@@ -59,5 +60,12 @@ Class DbTaskRepository implements TaskInterface{
 
         return true;
     }
+     public function download($id)
+     {
 
+         $task = $this->model->findOrFail($id);
+         $path = $task->file;
+
+         return Response::download(storage_path('app/') . $path);
+     }
 }

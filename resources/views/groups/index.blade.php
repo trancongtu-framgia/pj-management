@@ -13,7 +13,7 @@
                         <p class="card-text">{{ $group->group_image }}</p>
                         <div class="m-t-20">
                             <a href="#" class="btn btn-gradient-success">Join group</a>
-                            <a href="{{ url('group/' . $group->id . '/delete') }}" class="btn btn-gradient-warning">Delete</a>
+                            <a href="{{ url('group/' . $group->id . '/delete') }}"  class="btn btn-gradient-warning" onclick="return confirm('{{__('eng.del_confirm')}}');">{{  __('eng.del') }}</a>
                         </div>
                     </div>
                 </div>

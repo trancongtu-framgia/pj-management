@@ -22,6 +22,7 @@ Route::group(['prefix' => 'group'], function() {
     Route::post('create', 'GroupController@create');
     Route::get('/', 'GroupController@getAllGroups');
     Route::get('/{id}/detail', 'GroupController@show');
+    Route::get('/{id}/delete', 'GroupController@delete');
 });
 
 Route::group(['prefix' => 'task'], function() {
@@ -29,6 +30,7 @@ Route::group(['prefix' => 'task'], function() {
     Route::post('{id}/create', 'TaskController@upload');
     Route::get('/', 'TaskController@getAll');
     Route::get('{id}/delete', 'TaskController@delete');
+    Route::get('{id}/download', 'TaskController@download');
 });
 
 Route::group(['prefix' => 'exercise'], function() {

@@ -21,18 +21,18 @@
                                 {!! Form::text('name', null, ['class' => 'form-control']) !!}
                                 {!! $errors->first('name', '<span class="validate-error">:message</span>') !!}
                             </div>
-                            {!! Form::label('name', __('eng.label_desc'), ['class' => 'col-sm-3 col-form-label control-label']) !!}
+                            {!! Form::label('description', __('eng.label_desc'), ['class' => 'col-sm-3 col-form-label control-label']) !!}
                             <div class="col-sm-10">
                                 {!! Form::text('description', null, ['class' => 'form-control']) !!}
                             </div>
-                            {!! Form::label('name', __('eng.image'), ['class' => 'col-sm-3 col-form-label control-label']) !!}
+                            {!! Form::label('group_image', __('eng.image'), ['class' => 'col-sm-3 col-form-label control-label']) !!}
                             <div class="col-sm-10">
-                                {!! Form::file('task', null, ['class' => 'form-control']) !!}
+                                {!! Form::file('group_image', null, ['class' => 'form-control']) !!}
                             </div>
                             {!! $errors->first('group_image', '<span class="validate-error">:message</span>') !!}
                         </div>
                         <div class="form-group row">
-                            {!! Form::label('name', __('eng.sub'), ['class' => 'col-sm-3 col-form-label control-label']) !!}
+                            {!! Form::label('subject_id', __('eng.sub'), ['class' => 'col-sm-3 col-form-label control-label']) !!}
                             <div class="col-sm-10">
                                 {!! Form::select('subject_id', $subject, null, ['class' => 'form-control']) !!}
                             </div>

@@ -13,4 +13,6 @@ interface TaskInterface
     public function update($id, array $attribute);
 
     public function delete($id);
+
+    public function download($id);
 }
