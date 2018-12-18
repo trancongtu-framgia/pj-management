@@ -26,7 +26,7 @@ class ExerciseFormRequest extends FormRequest
         return [
             'name' => 'required|min:5',
             'start_date' => 'date|after:yesterday',
-            'end_date' => 'date|after:start_date'
+            'end_date' => 'date|after:start_date',
         ];
     }
 }
