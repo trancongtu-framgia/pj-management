@@ -4,7 +4,9 @@ namespace App\Repositories\Eloquents;
 
 use App\Repositories\Interfaces\GroupInterface;
 use App\Models\Group;
-use Illuminate\Support\Facades\Input;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Storage;
 
 Class DbGroupRepository implements GroupInterface{
 
@@ -25,11 +27,10 @@ Class DbGroupRepository implements GroupInterface{
         return $this->model->findOrFail($id);
     }
 
-    public function create(array $attribute)
+    public function createGroup($attribute)
     {
-        $attribute = Input::all();
-        if (Input::hasFile('group_image')) {
-            $file = Input::file('group_image');
+        $file = $attribute['group_image'];
+        if (isset($file)) {
             $name = $file->getClientOriginalName();
             $group_image = str_random(4) . '_' . $name;
             while (file_exists(config('app.group_image') . $group_image)) {
@@ -40,6 +41,7 @@ Class DbGroupRepository implements GroupInterface{
         } else {
             $this->model->group_image = '';
         }
+//        dd($attribute);
         $attribute['group_image'] = $group_image;
 
         return $this->model->create($attribute);

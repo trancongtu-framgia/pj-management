@@ -1,5 +1,5 @@
 @extends('master')
-@section('title', __('eng.sub'))
+@section('title', __('eng.task'))
 @section('content')
     <div class="card">
         @if (session('status'))
@@ -8,7 +8,7 @@
             </div>
         @endif
         <div class="card-header border bottom">
-            <h4 class="card-title">{{ __('eng.sub') }}</h4>
+            <h4 class="card-title">{{ __('eng.task') }}</h4>
         </div>
         <div class="card-body">
             <table class="table table-hover">
@@ -16,6 +16,7 @@
                 <tr>
                     <th scope="col">{{ __('eng.id') }}</th>
                     <th scope="col">{{ __('eng.name') }}</th>
+                    <th scope="col">{{ __('eng.file') }}</th>
                     <th scope="col">{{ __('eng.action') }}</th>
                 </tr>
                 </thead>
@@ -24,6 +25,7 @@
                     <tr>
                         <th scope="row">{{ $task->id }}</th>
                         <td><a href="{{ url('task/' . $task->id . '/detail') }}">{{ $task->name }}</a></td>
+                        <td><a href="{{ url('task/' . $task->id . '/download') }}" class="btn btn-gradient-info">{{ __('eng.download') }}</a></td>
                         <td><a href="{{ url('task/' . $task->id . '/delete') }}" onclick="return confirm('{{__('eng.del_confirm')}}');">{{ __('eng.del') }}</a></td>
                     </tr>
                 @endforeach

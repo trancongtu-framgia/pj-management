@@ -14,9 +14,4 @@ class Group extends Model
         'subject_id',
         'teacher_id',
     ];
-
-    public function subjects()
-    {
-        return $this->belongsTo('App\Models\Subject');
-    }
 }

@@ -39,7 +39,7 @@ class GroupController extends Controller
     public function create(GroupFormRequest $request)
     {
         $attribute = $request->all();
-        $group = $this->group->create($attribute);
+        $group = $this->group->createGroup($attribute);
 
         return view('groups.create', compact('group'));
     }
@@ -49,5 +49,12 @@ class GroupController extends Controller
         $group = $this->group->getById($id);
 
         return view('groups.detail', compact('group', $group));
+    }
+
+    public function delete($id)
+    {
+        $this->group->delete($id);
+
+        return redirect('group')->with('status', __('eng.del_success'));;
     }
 }

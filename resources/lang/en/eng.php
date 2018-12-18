@@ -28,4 +28,9 @@ return [
     'upload_task' => 'Upload',
     'createEx' => 'Create exercise',
     'link' => 'Link',
+    'task' => 'Task',
+    'del_success' => 'Deleted Successfully',
+    'upload_success' => 'Uploaded Successfully',
+    'download' => 'Download',
+    'file' => 'File',
 ];

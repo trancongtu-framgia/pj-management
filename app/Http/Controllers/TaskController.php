@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Repositories\Interfaces\ExerciseInterface;
 use App\Repositories\Interfaces\TaskInterface;
 use App\Http\Requests\TaskFormRequest;
+use Illuminate\Support\Facades\Storage;
 
 class TaskController extends Controller
 {
@@ -35,14 +36,20 @@ class TaskController extends Controller
     public function upload(TaskFormRequest $request)
     {
         $attribute = $request->all();
-        $task = $this->task->create($attribute);
+        $this->task->create($attribute);
 
-        return view('tasks.index')->with(['task' => $task]);
+        return redirect('task')->with('status', __('eng.upload_success'));
     }
 
     public function delete($id)
     {
         $this->task->delete($id);
-        return redirect('task');
+
+        return redirect('task')->with('status', __('eng.del_success'));;
+    }
+
+    public function download($id)
+    {
+        return $this->task->download($id);
     }
 }
