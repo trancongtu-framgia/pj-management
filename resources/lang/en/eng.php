@@ -33,4 +33,7 @@ return [
     'upload_success' => 'Uploaded Successfully',
     'download' => 'Download',
     'file' => 'File',
+    'upload' => 'Upload',
+    'start_Date' => 'Start date',
+    'end_Date' => 'End date',
 ];

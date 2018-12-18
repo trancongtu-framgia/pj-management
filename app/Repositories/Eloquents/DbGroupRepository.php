@@ -41,7 +41,6 @@ Class DbGroupRepository implements GroupInterface{
         } else {
             $this->model->group_image = '';
         }
-//        dd($attribute);
         $attribute['group_image'] = $group_image;
 
         return $this->model->create($attribute);
@@ -61,5 +60,4 @@ Class DbGroupRepository implements GroupInterface{
 
         return true;
     }
-
 }

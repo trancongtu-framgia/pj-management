@@ -1,9 +1,16 @@
 @extends('master')
 @section('title', __('eng.sub'))
 @section('content')
-    {!! Form::open(['method' => 'GET', 'url' => 'task/create']) !!}
-        {!! Form::submit(__('eng.upload'), ['class' => 'btn btn-gradient-success']) !!}
-    {!! Form::close() !!}
+    <div class="row">
+        <div class="col-2">
+            {!! Form::open(['method' => 'GET', 'url' => 'exercise/' . $group->id . '/create']) !!}
+            {!! Form::submit(__('eng.createEx'), ['class' => 'btn btn-gradient-success']) !!}
+            {!! Form::close() !!}
+        </div>
+        <div class="col-2">
+            <a href="{{ url('group/' . $group->id . '/exercise') }}" class="btn btn-gradient-info">{{ __('eng.exercise') }}</a>
+        </div>
+    </div>
     <div class="card">
         @if (session('status'))
             <div class="alert alert-success">

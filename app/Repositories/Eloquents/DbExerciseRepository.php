@@ -44,4 +44,9 @@ Class DbExerciseRepository implements ExerciseInterface{
 
         return true;
     }
+
+    public function getByGroup($id)
+    {
+        return Exercise::where('group_id', $id)->get();
+    }
 }

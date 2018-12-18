@@ -35,7 +35,7 @@ Class DbTaskRepository implements TaskInterface{
             while (file_exists(config('app.group_image') . $fileEx)) {
                 $fileEx = str_random(4) . '_' . $name;
             }
-                    $path = $file->store('public/files');
+                    $path = $file->store(config('app.task'));
 
             $this->model->file = $name;
         } else {
@@ -60,9 +60,9 @@ Class DbTaskRepository implements TaskInterface{
 
         return true;
     }
+
      public function download($id)
      {
-
          $task = $this->model->findOrFail($id);
          $path = $task->file;
 

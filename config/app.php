@@ -14,6 +14,7 @@ return [
     */
     'group_image' => 'public/group_image/',
     'file' => 'storage/app/',
+    'task' => 'public/files/',
     'name' => env('APP_NAME', 'Laravel'),
 
     /*
