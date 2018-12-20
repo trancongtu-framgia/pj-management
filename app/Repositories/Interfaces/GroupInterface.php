@@ -13,4 +13,6 @@ interface GroupInterface
     public function update($id, array $attribute);
 
     public function delete($id);
+
+    public function myGroups();
 }

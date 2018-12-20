@@ -4,6 +4,7 @@ namespace App\Repositories\Eloquents;
 
 use App\Repositories\Interfaces\TaskInterface;
 use App\Models\Task;
+use App\User;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Response;
 
@@ -61,11 +62,18 @@ Class DbTaskRepository implements TaskInterface{
         return true;
     }
 
-     public function download($id)
-     {
-         $task = $this->model->findOrFail($id);
-         $path = $task->file;
+    public function download($id)
+    {
+        $task = $this->model->findOrFail($id);
+        $path = $task->file;
 
-         return Response::download(storage_path('app/') . $path);
-     }
+        return Response::download(storage_path('app/') . $path);
+    }
+
+    public function taskOwner($id)
+    {
+        $taskOwner = User::with('task.user')->where('id', $id)->get()->toArray();
+
+        return $taskOwner;
+    }
 }
