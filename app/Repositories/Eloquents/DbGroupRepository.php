@@ -2,10 +2,13 @@
 
 namespace App\Repositories\Eloquents;
 
+use App\Models\GroupUser;
 use App\Repositories\Interfaces\GroupInterface;
 use App\Models\Group;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 Class DbGroupRepository implements GroupInterface{
@@ -59,5 +62,12 @@ Class DbGroupRepository implements GroupInterface{
         $this->getById($id)->delete();
 
         return true;
+    }
+
+    public function myGroups()
+    {
+        $groupUser = GroupUser::with('group.groupUser')->where('user_id', Auth::id())->get()->toArray();
+
+        return $groupUser;
     }
 }
