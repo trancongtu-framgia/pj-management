@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Repositories\Interfaces\SubjectInterface;
 use App\Http\Requests\SubjectFormRequest;
+use Illuminate\Support\Facades\Auth;
 
 class SubjectController extends Controller
 {
@@ -17,6 +18,7 @@ class SubjectController extends Controller
 
     public function showCreateForm()
     {
+//        dd(Auth::user());
         return view('subjects.create');
     }
 
